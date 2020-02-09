@@ -1,0 +1,15 @@
+{
+    "legacy_addon_id": "",
+    "title": "[tl] Payment KingCard",
+    "description": "Support kingcard.online payment gateway.",
+    "version_id": 1000000,
+    "version_string": "1.0.0",
+    "dev": "Truonglv",
+    "dev_url": "",
+    "faq_url": "https://github.com/luutruong/XF2_PaymentKingCard",
+    "support_url": "https://github.com/luutruong/XF2_PaymentKingCard/issues",
+    "extra_urls": [],
+    "require": [],
+    "icon": "",
+    "composer_autoload": "vendor/composer"
+}

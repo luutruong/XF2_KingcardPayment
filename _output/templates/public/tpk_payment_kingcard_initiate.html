@@ -1,0 +1,20 @@
+<xf:title>{{ phrase('tbk_kingcard_complete_purchase') }}</xf:title>
+
+<xf:form action="{{ link('purchase/process') }}" ajax="true" class="block">
+    <div class="block-container">
+        <div class="block-body">
+            <xf:radiorow name="telecom" value="" label="{{ phrase('tpk_kingcard_telecom_provider') }}">
+                <xf:foreach loop="$providers" value="$provider" key="$providerId">
+                    <xf:option value="{$providerId}">{$provider}</xf:option>
+                </xf:foreach>
+            </xf:radiorow>
+
+            <xf:textboxrow name="code" value="" label="{{ phrase('tpk_kingcard_card_code') }}"/>
+            <xf:textboxrow name="serial" value="" label="{{ phrase('tpk_kingcard_card_serial') }}"/>
+        </div>
+
+        <xf:submitrow icon="purchase" submit="{{ phrase('tpk_kingcard_continue...') }}"/>
+    </div>
+
+    <xf:hiddenval name="request_key">{$purchaseRequest.request_key}</xf:hiddenval>
+</xf:form>

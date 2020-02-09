@@ -1,0 +1,12 @@
+{
+    "admin/payment_profile_tpk_kingcard.html": {
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "d47c30e31edbe7f441d98ea8c560edae"
+    },
+    "public/tpk_payment_kingcard_initiate.html": {
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "75488c410edfce9c2c6188b09abce3c6"
+    }
+}

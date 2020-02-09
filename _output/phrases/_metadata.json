@@ -1,0 +1,80 @@
+{
+    "tbk_kingcard_complete_purchase.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "f774ca5179d85b17babcd6d647a05673"
+    },
+    "tpk_kingcard_card_code.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "51763cbc33d12f7cf0b7adfc241de8bd"
+    },
+    "tpk_kingcard_card_serial.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "eb465e361bef8fcb246d2be1acc24aa2"
+    },
+    "tpk_kingcard_continue.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "a0bfb8e59e6c13fc8d990781f77694fe"
+    },
+    "tpk_kingcard_error_occurred_while_processing_payment.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "1908737477dbdba982a5f2cf61446085"
+    },
+    "tpk_kingcard_please_enter_valid_card_code.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "4e5024d20488e0dcaeceacc1a815f8cc"
+    },
+    "tpk_kingcard_please_enter_valid_card_serial.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "408347c39d67a44b16325b337dc60878"
+    },
+    "tpk_kingcard_please_select_valid_telecom_provider.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "355a56a8e28a8d5c7017722f69359700"
+    },
+    "tpk_kingcard_telecom_provider.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "8e1f754dde6e51fb5a040f960aa73546"
+    },
+    "tpk_kingcard_your_payment_under_processing_please_wait.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "ed0057f8affb27beffc70a45c2443f19"
+    },
+    "tpk_provider_mobiphone.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "af477de67bec24487f14ae46c6a72fdc"
+    },
+    "tpk_provider_viettel.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "32ccdb9b540cc311890bfb8854d691f4"
+    },
+    "tpk_provider_vinaphone.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "5c3e9f43b1435c1ae25a42e5ad33ceff"
+    }
+}
