@@ -5,6 +5,18 @@
         "version_string": "1.0.0",
         "hash": "f774ca5179d85b17babcd6d647a05673"
     },
+    "tpk_kingcard_api_key.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "62c7594948c1231bbae9f948b1535b7e"
+    },
+    "tpk_kingcard_api_secret.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "e31889e40be2c55edcf4c080b85b9ede"
+    },
     "tpk_kingcard_card_code.txt": {
         "global_cache": false,
         "version_id": 1000000,
