@@ -140,7 +140,7 @@ class KingCard extends AbstractProvider
                 'query' => [
                     'jwt' => $this->getToken($paymentProfile, $params)
                 ],
-                'form_data' => $params,
+                'form_params' => $params,
                 'headers' => [
                     'Content-Type' => 'application/json',
                     'Accept' => 'application/json'
