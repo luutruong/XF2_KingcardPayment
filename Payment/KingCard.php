@@ -50,7 +50,7 @@ class KingCard extends AbstractProvider
         return [
             'mrc_order_id' => $purchaseRequest->request_key,
             'telco' => '',
-            'amount' => $purchase->cost,
+            'amount' => \intval($purchase->cost),
             'code' => '',
             'serial' => '',
             'webhooks' => $this->getCallbackUrl()
@@ -142,7 +142,6 @@ class KingCard extends AbstractProvider
                 ],
                 'form_params' => $params,
                 'headers' => [
-                    'Content-Type' => 'application/json',
                     'Accept' => 'application/json'
                 ]
             ]);
