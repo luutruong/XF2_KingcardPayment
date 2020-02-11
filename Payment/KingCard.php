@@ -63,9 +63,9 @@ class KingCard extends AbstractProvider
     protected function getTelecomProviders()
     {
         return [
-            'mobi' => \XF::phrase('tpk_provider_mobiphone'),
-            'viettel' => \XF::phrase('tpk_provider_viettel'),
-            'vina' => \XF::phrase('tpk_provider_vinaphone'),
+            'MOBI' => \XF::phrase('tpk_provider_mobiphone'),
+            'VIETTEL' => \XF::phrase('tpk_provider_viettel'),
+            'VINA' => \XF::phrase('tpk_provider_vinaphone'),
         ];
     }
 
@@ -250,7 +250,7 @@ class KingCard extends AbstractProvider
     {
         if (!$this->validateExpectedValues($state)) {
             $state->logType = 'error';
-            $state->logMessage = 'Data received from BaoKim does not contain the expected values.';
+            $state->logMessage = 'Data received from BaoKim/KingCard does not contain the expected values.';
 
             if (!$state->requestKey) {
                 $state->httpCode = 200;
