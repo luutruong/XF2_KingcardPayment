@@ -136,7 +136,7 @@ class KingCard extends AbstractProvider
         $response = null;
 
         try {
-            $response = $client->post($this->getApiEndpoint() . '/api/v1/strike-card', [
+            $response = $client->post($this->getApiEndpoint() . '/kingcard/api/v1/strike-card', [
                 'query' => [
                     'jwt' => $this->getToken($paymentProfile, $params)
                 ],
