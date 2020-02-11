@@ -178,6 +178,11 @@ class KingCard extends AbstractProvider
             return $controller->message(\XF::phrase('tpk_kingcard_your_payment_under_processing_please_wait'));
         }
 
+        if ($json['code'] == 6) {
+            // duplicate order record error
+            return $controller->error(\XF::phrase('tpk_kingcard_error_duplicate_order_try_again'));
+        }
+
         return $controller->error(\XF::phrase('tpk_kingcard_error_occurred_while_processing_payment'));
     }
 

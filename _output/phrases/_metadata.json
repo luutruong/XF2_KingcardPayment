@@ -35,6 +35,12 @@
         "version_string": "1.0.0",
         "hash": "a0bfb8e59e6c13fc8d990781f77694fe"
     },
+    "tpk_kingcard_error_duplicate_order_try_again.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "382bff0d04d9cdb55415cfb15b137553"
+    },
     "tpk_kingcard_error_occurred_while_processing_payment.txt": {
         "global_cache": false,
         "version_id": 1000000,
