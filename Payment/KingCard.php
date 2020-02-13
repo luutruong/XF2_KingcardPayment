@@ -259,50 +259,19 @@ class KingCard extends AbstractProvider
             return false;
         }
 
-        $client = \XF::app()->http()->client();
-        $inputFiltered = $state->inputFiltered;
+        $inputRaw = $state->inputRaw;
+        $json = \json_decode($inputRaw, true);
 
-        try {
-            $response = $client->get($this->getApiEndpoint() . '/payment/api/v4/order/detail', [
-                'query' => [
-                    'id' => $inputFiltered['order']['id'],
-                    'mrc_order_id' => $state->requestKey,
-                    'jwt' => $this->getToken($state->paymentProfile, [])
-                ]
-            ]);
-        } catch (\GuzzleHttp\Exception\RequestException $e) {
+        $sign = $json['sign'];
+        unset($json['sign']);
+
+        $computed = \hash_hmac('sha256', \json_encode($json), $state->paymentProfile->options['api_secret']);
+        if ($sign !== $computed) {
             $state->logType = 'error';
-            $state->logMessage = $e->getMessage();
-            $state->httpCode = 400;
+            $state->logMessage = 'Invalid signature!';
 
             return false;
         }
-
-        if ($response->getStatusCode() !== 200) {
-            $state->logType = 'error';
-            $state->logMessage = $response->getReasonPhrase();
-
-            $state->httpCode = 400;
-
-            return false;
-        }
-
-        $data = \json_decode(\strval($response->getBody()), true);
-        $state->orderDetail = $data;
-        $order = isset($data['data']) ? $data['data'] : [];
-
-        $mrcOrderId = isset($order['mrc_order_id']) ? $order['mrc_order_id'] : null;
-        if (!$mrcOrderId || $mrcOrderId !== $state->requestKey) {
-            $state->logType = 'error';
-            $state->logMessage = 'Mismatch order ID!';
-
-            return false;
-        }
-
-        $inputFiltered = \array_replace_recursive($inputFiltered, [
-            'order' => $order
-        ]);
-        $state->inputFiltered = $inputFiltered;
 
         return true;
     }
@@ -314,7 +283,10 @@ class KingCard extends AbstractProvider
     public function validateCost(CallbackState $state)
     {
         $cost = \round($state->purchaseRequest->cost_amount, 2);
-        $totalPaid = \round($state->inputFiltered['txn']['total_amount'], 2);
+        $totalPaid = \round(
+            $state->inputFiltered['txn']['amount'] + $state->inputFiltered['txn']['fee_amount'],
+            2
+        );
 
         if ($cost !== $totalPaid) {
             $state->logType = 'error';
@@ -333,7 +305,7 @@ class KingCard extends AbstractProvider
     public function getPaymentResult(CallbackState $state)
     {
         $result = $state->inputFiltered['order']['stat'];
-        if ($result === 'c') {
+        if ($result === 2) {
             $state->paymentResult = CallbackState::PAYMENT_RECEIVED;
         }
     }
@@ -345,8 +317,7 @@ class KingCard extends AbstractProvider
     public function prepareLogData(CallbackState $state)
     {
         $state->logDetails = \array_merge($state->_POST, [
-            'raw' => $state->inputRaw,
-            'orderDetail' => $state->orderDetail
+            'raw' => $state->inputRaw
         ]);
     }
 
