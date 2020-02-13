@@ -288,6 +288,7 @@ class KingCard extends AbstractProvider
         }
 
         $data = \json_decode(\strval($response->getBody()), true);
+        $state->orderDetail = $data;
         $order = isset($data['data']) ? $data['data'] : [];
 
         $mrcOrderId = isset($order['mrc_order_id']) ? $order['mrc_order_id'] : null;
@@ -343,9 +344,10 @@ class KingCard extends AbstractProvider
      */
     public function prepareLogData(CallbackState $state)
     {
-        $state->logDetails = $state->_POST + [
-                'raw' => $state->inputRaw
-            ];
+        $state->logDetails = \array_merge($state->_POST, [
+            'raw' => $state->inputRaw,
+            'orderDetail' => $state->orderDetail
+        ]);
     }
 
     /**
