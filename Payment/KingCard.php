@@ -283,10 +283,10 @@ class KingCard extends AbstractProvider
     public function validateCost(CallbackState $state)
     {
         $cost = \round($state->purchaseRequest->cost_amount, 2);
-        $totalPaid = \round(
-            $state->inputFiltered['txn']['amount'] + $state->inputFiltered['txn']['fee_amount'],
-            2
-        );
+
+        $amount = isset($state->inputFiltered['txn']['amount']) ? $state->inputFiltered['txn']['amount'] : 0;
+        $feeAmount = isset($state->inputFiltered['txn']['fee_amount']) ? $state->inputFiltered['txn']['fee_amount'] : 0;
+        $totalPaid = \round($amount + $feeAmount, 2);
 
         if ($cost !== $totalPaid) {
             $state->logType = 'error';
