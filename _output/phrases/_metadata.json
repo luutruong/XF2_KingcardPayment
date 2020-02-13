@@ -94,5 +94,11 @@
         "version_id": 1000000,
         "version_string": "1.0.0",
         "hash": "5c3e9f43b1435c1ae25a42e5ad33ceff"
+    },
+    "tpk_you_must_select_and_enter_the_correct_mobile_card.txt": {
+        "global_cache": false,
+        "version_id": 1000100,
+        "version_string": "1.0.1",
+        "hash": "a1a93b2dc86d45d8625a51e1d7f8d899"
     }
 }

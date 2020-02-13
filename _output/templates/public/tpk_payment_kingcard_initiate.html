@@ -3,6 +3,8 @@
 <xf:form action="{{ link('purchase/process') }}" ajax="true" class="block">
     <div class="block-container">
         <div class="block-body">
+            <xf:formrow>{{ phrase('tpk_you_must_select_and_enter_the_correct_mobile_card') }}</xf:formrow>
+
             <xf:radiorow name="telecom" value="" label="{{ phrase('tpk_kingcard_telecom_provider') }}">
                 <xf:foreach loop="$providers" value="$provider" key="$providerId">
                     <xf:option value="{$providerId}">{$provider}</xf:option>

@@ -265,7 +265,7 @@ class KingCard extends AbstractProvider
         $sign = $json['sign'];
         unset($json['sign']);
 
-        $computed = \hash_hmac('sha256', \json_encode($json), $state->paymentProfile->options['api_secret']);
+        $computed = \hash_hmac('sha256', \strval(\json_encode($json)), $state->paymentProfile->options['api_secret']);
         if ($sign !== $computed) {
             $state->logType = 'error';
             $state->logMessage = 'Invalid signature!';
