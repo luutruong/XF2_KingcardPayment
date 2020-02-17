@@ -93,7 +93,7 @@ class KingCard extends AbstractProvider
      * @param PurchaseRequest $purchaseRequest
      * @param PaymentProfile $paymentProfile
      * @param Purchase $purchase
-     * @return \XF\Mvc\Reply\Error|\XF\Mvc\Reply\Message
+     * @return \XF\Mvc\Reply\AbstractReply
      * @throws \XF\PrintableException
      */
     public function processPayment(
@@ -174,8 +174,11 @@ class KingCard extends AbstractProvider
 
         $log->save();
 
-        if ($response->getStatusCode() === 200 && isset($json['code']) && $json['code'] == 0) {
-            return $controller->message(\XF::phrase('tpk_kingcard_your_payment_under_processing_please_wait'));
+        if ($response->getStatusCode() === 200
+            && isset($json['code']) && $json['code'] == 0
+            && $log->transaction_id !== ''
+        ) {
+            return $controller->redirect($controller->buildLink('account/tpk-thanks'));
         }
 
         if ($json['code'] == 6) {

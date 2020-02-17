@@ -71,11 +71,11 @@
         "version_string": "1.0.0",
         "hash": "8e1f754dde6e51fb5a040f960aa73546"
     },
-    "tpk_kingcard_your_payment_under_processing_please_wait.txt": {
+    "tpk_kingcard_thanks_you_for_purchasing_your_payment_under_process.txt": {
         "global_cache": false,
-        "version_id": 1000000,
-        "version_string": "1.0.0",
-        "hash": "ed0057f8affb27beffc70a45c2443f19"
+        "version_id": 1000200,
+        "version_string": "1.0.2",
+        "hash": "64abe9a456c0212aac33b88aba0971db"
     },
     "tpk_provider_mobiphone.txt": {
         "global_cache": false,
