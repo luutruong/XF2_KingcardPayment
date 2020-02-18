@@ -159,8 +159,8 @@ class KingCard extends AbstractProvider
         $log = $controller->em()->create('XF:PaymentProviderLog');
         $log->purchase_request_key = $purchaseRequest->request_key;
         $log->provider_id = $this->providerId;
-        $log->transaction_id = isset($json['data'], $json['data']['order_id'])
-            ? $json['data']['order_id']
+        $log->transaction_id = isset($json['data'], $json['data']['id'])
+            ? $json['data']['id']
             : '';
 
         $log->subscriber_id = '';
