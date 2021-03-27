@@ -120,7 +120,8 @@ class KingCard extends AbstractProvider
         $params = \array_replace($params, [
             'telco' => $input['telecom'],
             'code' => $input['code'],
-            'serial' => $input['serial']
+            'serial' => $input['serial'],
+            'webhooks' => $this->getCallbackUrl(),
         ]);
 
         $client = $controller->app()->http()->client();
