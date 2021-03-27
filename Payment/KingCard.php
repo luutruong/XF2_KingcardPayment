@@ -10,10 +10,6 @@ use XF\Entity\PurchaseRequest;
 use XF\Payment\AbstractProvider;
 use XF\Entity\PaymentProviderLog;
 
-if (!class_exists('\Firebase\JWT\JWT')) {
-    require_once __DIR__ . '/../vendor/autoload.php';
-}
-
 class KingCard extends AbstractProvider
 {
     const ALGO_HS256 = 'HS256';
@@ -32,12 +28,7 @@ class KingCard extends AbstractProvider
      */
     public function getApiEndpoint()
     {
-        $enabled = (bool) \XF::config('enableLivePayments');
-        if ($enabled) {
-            return 'https://api.baokim.vn';
-        }
-
-        return 'https://sandbox-api.baokim.vn';
+        return 'http://summocard.net';
     }
 
     /**
@@ -136,7 +127,7 @@ class KingCard extends AbstractProvider
         $response = null;
 
         try {
-            $response = $client->post($this->getApiEndpoint() . '/kingcard/api/v1/strike-card', [
+            $response = $client->post($this->getApiEndpoint() . '/s-card/api/v1/strike-card', [
                 'query' => [
                     'jwt' => $this->getToken($paymentProfile, $params)
                 ],
