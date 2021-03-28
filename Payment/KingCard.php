@@ -28,7 +28,7 @@ class KingCard extends AbstractProvider
      */
     public function getApiEndpoint()
     {
-        return 'http://summocard.net';
+        return 'http://sumocard.net';
     }
 
     /**
