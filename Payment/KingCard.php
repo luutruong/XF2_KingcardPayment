@@ -178,7 +178,10 @@ class KingCard extends AbstractProvider
             return $controller->error(\XF::phrase('tpk_kingcard_error_duplicate_order_try_again'));
         }
 
-        return $controller->error(\XF::phrase('tpk_kingcard_error_occurred_while_processing_payment'));
+        return $controller->error(
+            \XF::phrase('tpk_kingcard_error_occurred_while_processing_payment')
+            . ' (Error Code: ' . $json['code'] . ')'
+        );
     }
 
     /**
